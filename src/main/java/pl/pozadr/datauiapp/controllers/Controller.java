@@ -1,11 +1,7 @@
 package pl.pozadr.datauiapp.controllers;
 
-
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import pl.pozadr.datauiapp.models.Sail;
 import pl.pozadr.datauiapp.services.SailService;
 
@@ -13,7 +9,7 @@ import java.util.Optional;
 
 @org.springframework.stereotype.Controller
 public class Controller {
-    private SailService sailService;
+    private final SailService sailService;
 
     public Controller(SailService sailService) {
         this.sailService = sailService;
