@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <title>Sails</title>
+</head>
+<body>
+
+<h2>List of sails</h2>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
+    Add new
+</button>
+
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Model</th>
+        <th>Mark</th>
+        <th>Updated by</th>
+        <th>Updated on</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="sail:${sails}">
+        <th scope="row" th:text="${sail.getId()}">Id</th>
+        <td th:text="${sail.getModel()}">Model</td>
+        <td th:text="${sail.getMark()}">Mark</td>
+        <td th:text="${sail.getUpdatedBy()}">Updated by</td>
+        <td th:text="${sail.getUpdatedOn()}">Updated on</td>
+        <td><a class="btn btn-warning">Edit</a></td>
+        <td><a class="btn btn-danger">Delete</a></td>
+    </tr>
+</table>
+<div class="container"></div>
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">New Sail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="idAdd" class="col-form-label">Id:</label>
+                        <input type="text" class="form-control" id="idAdd" name="idAdd">
+                    </div>
+                    <div>
+                        <label for="modelAdd" class="col-form-label">Model:</label>
+                        <input type="text" class="form-control" id="modelAdd" name="modelAdd">
+                    </div>
+                    <div>
+                        <label for="markAdd" class="col-form-label">Mark:</label>
+                        <input type="text" class="form-control" id="markAdd" name="markAdd">
+                    </div>
+                    <div>
+                        <label for="updatedByAdd" class="col-form-label">Updated by:</label>
+                        <input type="text" class="form-control" id="updatedByAdd" name="updatedByAdd">
+                    </div>
+                    <div>
+                        <label for="updatedOnAdd" class="col-form-label">Updated on:</label>
+                        <input type="text" class="form-control" id="updatedOnAdd" name="updatedOnAdd">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

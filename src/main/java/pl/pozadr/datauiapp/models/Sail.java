@@ -12,8 +12,8 @@ import java.util.Date;
 public class Sail {
     @Id
     private Integer id;
-    private String model;
     private String mark;
+    private String model;
     private String updatedBy;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date updatedOn;
@@ -21,7 +21,7 @@ public class Sail {
     public Sail() {
     }
 
-    public Sail(Integer id, String model, String mark, String updatedBy, Date updatedOn) {
+    public Sail(Integer id, String mark, String model, String updatedBy, Date updatedOn) {
         this.id = id;
         this.model = model;
         this.mark = mark;
@@ -67,5 +67,16 @@ public class Sail {
 
     public void setUpdatedOn(Date updatedOn) {
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public String toString() {
+        return "Sail{" +
+                "id=" + id +
+                ", mark='" + mark + '\'' +
+                ", model='" + model + '\'' +
+                ", updatedBy='" + updatedBy + '\'' +
+                ", updatedOn=" + updatedOn +
+                '}';
     }
 }
