@@ -8,8 +8,8 @@
           crossorigin="anonymous">
     <title>Sails</title>
 </head>
-<body>
 
+<body>
 <h2>List of sails</h2>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
@@ -32,18 +32,19 @@
         <td th:text="${sail.getMark()}">Mark</td>
         <td th:text="${sail.getUpdatedBy()}">Updated by</td>
         <td th:text="${sail.getUpdatedOn()}">Updated on</td>
-        <td><a class="btn btn-warning">Edit</a></td>
-        <td><a class="btn btn-danger">Delete</a></td>
+        <td><a th:href="@{/sails-by-id/(id=${sail.id})}" class="btn btn-warning editButton">Edit</a></td>
+        <td><a class="btn btn-danger deleteButton">Delete</a></td>
     </tr>
 </table>
 
+<!-- MODALS -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
      aria-hidden="true">
     <form th:action="@{/add-new-sail}" th:method="post">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">New Sail</h5>
+                    <h5 class="modal-title" id="addModalCenterTitle">New Sail</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -79,9 +80,51 @@
     </form>
 </div>
 
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <form th:action="@{/update-sail}" th:method="put">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalCenterTitle">New Sail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="idUpdate" class="col-form-label">Id:</label>
+                        <input type="text" class="form-control" id="idUpdate" name="id">
+                    </div>
+                    <div>
+                        <label for="modelUpdate" class="col-form-label">Model:</label>
+                        <input type="text" class="form-control" id="modelUpdate" name="model">
+                    </div>
+                    <div>
+                        <label for="markUpdate" class="col-form-label">Mark:</label>
+                        <input type="text" class="form-control" id="markUpdate" name="mark">
+                    </div>
+                    <div>
+                        <label for="updatedByUpdate" class="col-form-label">Updated by:</label>
+                        <input type="text" class="form-control" id="updatedByUpdate" name="updatedBy">
+                    </div>
+                    <div>
+                        <label for="updatedOnUpdate" class="col-form-label">Updated on:</label>
+                        <input type="text" class="form-control" id="updatedOnUpdate" name="updatedOn">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -89,5 +132,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
 </body>
 </html>

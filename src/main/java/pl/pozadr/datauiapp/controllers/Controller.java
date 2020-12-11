@@ -30,18 +30,18 @@ public class Controller {
     @RequestMapping(value = "/update-sail", method = {RequestMethod.PUT, RequestMethod.POST, RequestMethod.GET})
     public String saveSail(Sail sail) {
         sailService.updateSail(sail);
-        return "redirect:sails";
+        return "redirect:/sails";
     }
 
     @RequestMapping(value = "/add-new-sail", method = {RequestMethod.PUT, RequestMethod.POST, RequestMethod.GET})
     public String addNewSail(Sail sail) {
         sailService.addSail(sail);
-        return "redirect:sails";
+        return "redirect:/sails";
     }
 
     @RequestMapping(value = "/delete-sail", method = {RequestMethod.PUT, RequestMethod.POST, RequestMethod.GET})
     public String deleteSail(Integer id) {
         sailService.deleteSail(id);
-        return "redirect:sails";
+        return "redirect:/sails";
     }
 }
