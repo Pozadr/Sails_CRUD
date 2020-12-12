@@ -8,7 +8,7 @@ $(document).ready(function () {
             $('#modelUpdate').val(sail.model);
             $('#markUpdate').val(sail.mark);
             $('#updatedByUpdate').val(sail.updatedBy);
-            $('#updatedOnUpdate').val(sail.updatedOn).substr(0,10);
+            $('#updatedOnUpdate').val(sail.updatedOn);
         });
         $('#editModal').modal();
     });

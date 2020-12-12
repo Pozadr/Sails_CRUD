@@ -56,27 +56,42 @@
                     <div class="form-group">
                         <label for="idAdd" class="col-form-label">Id:</label>
                         <input type="text" class="form-control" id="idAdd" name="id">
+                        <p id="idMessage" style="color: red;">
+                            **Id is missing
+                        </p>
                     </div>
                     <div>
                         <label for="modelAdd" class="col-form-label">Model:</label>
                         <input type="text" class="form-control" id="modelAdd" name="model">
+                        <p id="modelMessage" style="color: red;">
+                            **Model is missing
+                        </p>
                     </div>
                     <div>
                         <label for="markAdd" class="col-form-label">Mark:</label>
                         <input type="text" class="form-control" id="markAdd" name="mark">
+                        <p id="markMessage" style="color: red;">
+                            **Mark is missing
+                        </p>
                     </div>
                     <div>
                         <label for="updatedByAdd" class="col-form-label">Updated by:</label>
                         <input type="text" class="form-control" id="updatedByAdd" name="updatedBy">
+                        <p id="updatedByMessage" style="color: red;">
+                            **Updated by is missing
+                        </p>
                     </div>
                     <div>
                         <label for="updatedOnAdd" class="col-form-label">Updated on:</label>
                         <input type="text" class="form-control" id="updatedOnAdd" name="updatedOn">
+                        <p id="updatedOnMessage" style="color: red;">
+                            **Updated on is missing
+                        </p>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary" id="submitAdd">Save</button>
                 </div>
             </div>
         </div>
@@ -99,27 +114,42 @@
                     <div class="form-group">
                         <label for="idUpdate" class="col-form-label">Id:</label>
                         <input type="text" class="form-control" id="idUpdate" name="id">
+                        <p id="idEditMessage" style="color: red;">
+                            **Id is missing
+                        </p>
                     </div>
                     <div>
                         <label for="modelUpdate" class="col-form-label">Model:</label>
                         <input type="text" class="form-control" id="modelUpdate" name="model">
+                        <p id="modelEditMessage" style="color: red;">
+                            **Model is missing
+                        </p>
                     </div>
                     <div>
                         <label for="markUpdate" class="col-form-label">Mark:</label>
                         <input type="text" class="form-control" id="markUpdate" name="mark">
+                        <p id="markEditMessage" style="color: red;">
+                            **Mark is missing
+                        </p>
                     </div>
                     <div>
                         <label for="updatedByUpdate" class="col-form-label">Updated by:</label>
                         <input type="text" class="form-control" id="updatedByUpdate" name="updatedBy">
+                        <p id="updatedByEditMessage" style="color: red;">
+                            **Updated by is missing
+                        </p>
                     </div>
                     <div>
                         <label for="updatedOnUpdate" class="col-form-label">Updated on:</label>
                         <input type="text" class="form-control" id="updatedOnUpdate" name="updatedOn">
+                        <p id="updatedOnEditMessage" style="color: red;">
+                            **Updated on is missing
+                        </p>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary" id="submitEdit">Save</button>
                 </div>
             </div>
         </div>
@@ -161,5 +191,7 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 <script type="text/javascript" th:src="@{/js/main.js}"></script>
+<script type="text/javascript" th:src="@{/js/validAddModal.js}"></script>
+<script type="text/javascript" th:src="@{/js/validEditModal.js}"></script>
 </body>
 </html>
