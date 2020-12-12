@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import pl.pozadr.datauiapp.models.Sail;
 import pl.pozadr.datauiapp.repositories.SailRepository;
 
+import javax.swing.text.html.Option;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,8 +30,17 @@ public class SailServiceImpl implements SailService {
     }
 
     @Override
-    public void addSail(Sail sail) {
-        sailRepository.save(sail);
+    public void addSail(Sail newSail) {
+        if (isIdOccupied(newSail)) {
+            List<Sail> sails = getSails();
+            Optional<Sail> maxId = sails.stream()
+                    .max(Comparator.comparing(Sail::getId));
+            if (maxId.isPresent()) {
+                newSail.setId(maxId.get().getId() + 1);
+                sailRepository.save(newSail);
+            }
+        }
+        sailRepository.save(newSail);
     }
 
     @Override
@@ -42,4 +53,10 @@ public class SailServiceImpl implements SailService {
         sailRepository.deleteById(id);
     }
 
+    private boolean isIdOccupied(Sail newSail) {
+        List<Sail> sails = getSails();
+        Optional<Sail> idOccupied = sails.stream()
+                .filter(sail -> sail.getId().equals(newSail.getId())).findFirst();
+        return idOccupied.isPresent();
+    }
 }
