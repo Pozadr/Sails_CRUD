@@ -5,23 +5,36 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Date;
+import javax.validation.constraints.*;
+import java.time.LocalDate;
 
 
 @Entity
 public class Sail {
     @Id
+    @NotNull(message = "ID cannot be null.")
+    @Min(value = 1, message = "ID must be greater than 1.")
     private Integer id;
+
+    @NotNull(message = "Mark cannot be null.")
+    @NotBlank(message = "Mark cannot be blank.")
     private String mark;
+
+    @NotNull(message = "Model cannot be null.")
+    @NotBlank(message = "Model cannot be blank.")
     private String model;
+
+    @NotNull(message = "Updated by cannot be null.")
+    @NotBlank(message = "Updated by cannot be blank.")
     private String updatedBy;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date updatedOn;
+    private LocalDate updatedOn;
 
     public Sail() {
     }
 
-    public Sail(Integer id, String mark, String model, String updatedBy, Date updatedOn) {
+    public Sail(Integer id, String mark, String model, String updatedBy, LocalDate updatedOn) {
         this.id = id;
         this.model = model;
         this.mark = mark;
@@ -61,11 +74,11 @@ public class Sail {
         this.updatedBy = updatedBy;
     }
 
-    public Date getUpdatedOn() {
+    public LocalDate getUpdatedOn() {
         return updatedOn;
     }
 
-    public void setUpdatedOn(Date updatedOn) {
+    public void setUpdatedOn(LocalDate updatedOn) {
         this.updatedOn = updatedOn;
     }
 

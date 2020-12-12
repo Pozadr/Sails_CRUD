@@ -10,33 +10,35 @@
 </head>
 
 <body>
-<h2>List of sails</h2>
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
-    Add new
-</button>
-
-<table class="table table-striped">
-    <tr>
-        <th>Id</th>
-        <th>Model</th>
-        <th>Mark</th>
-        <th>Updated by</th>
-        <th>Updated on</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-    <tr th:each="sail:${sails}">
-        <th scope="row" th:text="${sail.getId()}">Id</th>
-        <td th:text="${sail.getModel()}">Model</td>
-        <td th:text="${sail.getMark()}">Mark</td>
-        <td th:text="${sail.getUpdatedBy()}">Updated by</td>
-        <td th:text="${sail.getUpdatedOn()}">Updated on</td>
-        <td><a th:href="@{/sails-by-id/(id=${sail.id})}" class="btn btn-warning editButton">Edit</a></td>
-        <td><a th:href="@{/delete-sail/(id=${sail.id})}"class="btn btn-danger deleteButton">Delete</a></td>
-    </tr>
-</table>
-
+<div class="container">
+    <h2 class="text-center">List of sails</h2>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
+        Add new
+    </button>
+    <p></p>
+</div>
+<div class="container">
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Model</th>
+            <th>Mark</th>
+            <th>Updated by</th>
+            <th>Updated on</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="sail:${sails}">
+            <th scope="row" th:text="${sail.getId()}">Id</th>
+            <td th:text="${sail.getModel()}">Model</td>
+            <td th:text="${sail.getMark()}">Mark</td>
+            <td th:text="${sail.getUpdatedBy()}">Updated by</td>
+            <td th:text="${sail.getUpdatedOn()}">Updated on</td>
+            <td><a th:href="@{/sails-by-id/(id=${sail.id})}" class="btn btn-warning editButton">Edit</a></td>
+            <td><a th:href="@{/delete-sail/(id=${sail.id})}" class="btn btn-danger deleteButton">Delete</a></td>
+        </tr>
+    </table>
+</div>
 <!-- MODALS -->
 <!-- Add Sail -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -45,7 +47,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addModalCenterTitle">New Sail</h5>
+                    <h5 class="modal-title" id="addModalCenterTitle">New sail</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -88,7 +90,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="updateModalCenterTitle">New Sail</h5>
+                    <h5 class="modal-title" id="updateModalCenterTitle">Edit sail</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

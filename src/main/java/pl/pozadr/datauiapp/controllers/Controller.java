@@ -1,6 +1,7 @@
 package pl.pozadr.datauiapp.controllers;
 
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.pozadr.datauiapp.models.Sail;
 import pl.pozadr.datauiapp.services.SailService;
@@ -28,13 +29,13 @@ public class Controller {
     }
 
     @RequestMapping(value = "/update-sail", method = {RequestMethod.PUT, RequestMethod.POST, RequestMethod.GET})
-    public String saveSail(Sail sail) {
+    public String saveSail(@Validated Sail sail) {
         sailService.updateSail(sail);
         return "redirect:/sails";
     }
 
     @RequestMapping(value = "/add-new-sail", method = {RequestMethod.PUT, RequestMethod.POST, RequestMethod.GET})
-    public String addNewSail(Sail sail) {
+    public String addNewSail(@Validated Sail sail) {
         sailService.addSail(sail);
         return "redirect:/sails";
     }
