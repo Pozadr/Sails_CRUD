@@ -2,6 +2,7 @@
 
 ## General
 CRUD service with "Sail" model. Used MVC software design pattern.
+
 ## Technologies
 - Java 11
 - Maven
@@ -11,6 +12,14 @@ CRUD service with "Sail" model. Used MVC software design pattern.
 - JQuery/JavaScript
 - H2
 - MVC
+
+## Configuration
+H2 DB application.properties:
+
+    spring.h2.console.enabled=true
+    spring.datasource.platform=h2
+    spring.datasource.url=jdbc:h2:mem:dbSails
+    spring.jpa.hibernate.ddl-auto=update
 
 ## Screenshots
 
