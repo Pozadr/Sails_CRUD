@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import pl.pozadr.datauiapp.models.Sail;
 import pl.pozadr.datauiapp.repositories.SailRepository;
 
-import javax.swing.text.html.Option;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;

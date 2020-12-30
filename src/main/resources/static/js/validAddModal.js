@@ -63,7 +63,6 @@ function validateAddSail() {
     }
 
     return !(idError || modelError || markError || updatedByError || updatedOnError);
-
 }
 
 // Submit add Sail
